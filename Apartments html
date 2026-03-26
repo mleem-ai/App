@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Квартиры</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav>
+    <a href="/">Главная</a>
+    <a href="/apartments">Квартиры</a>
+    <a href="/about">О проекте</a>
+    <a href="/contact">Контакты</a>
+</nav>
+<hr>
+
+<h1>Квартиры</h1>
+
+{% for apt in apartments %}
+<div>
+    <img src="{{ url_for('static', filename=apt['изображение']) }}" width="200">
+    <h2>{{ apt['название'] }}</h2>
+    <p>Площадь: {{ apt['площадь'] }}</p>
+    <p>{{ apt['описание'] }}</p>
+</div>
+{% endfor %}
+
+</body>
+</html>
