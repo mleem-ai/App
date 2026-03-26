@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>О проекте</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav>
+    <a href="/">Главная</a>
+    <a href="/apartments">Квартиры</a>
+    <a href="/about">О проекте</a>
+    <a href="/contact">Контакты</a>
+</nav>
+<hr>
+
+<h1>О проекте</h1>
+<p>Этот сайт показывает различные планировки квартир.</p>
+
+</body>
+</html>
