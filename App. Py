@@ -1,13 +1,31 @@
 from flask import Flask, render_template
 import json
+import os
 
 app = Flask(__name__)
 
+def load_data():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    data_path = os.path.join(base_dir, 'data', 'data.json')
+    with open(data_path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
 @app.route('/')
 def index():
-    with open('data/data.json', 'r', encoding='utf-8') as f:
-        apartments = json.load(f)
-    return render_template('index.html', apartments=apartments)
+    return render_template('index.html')
+
+@app.route('/apartments')
+def apartments():
+    apartments = load_data()
+    return render_template('apartments.html', apartments=apartments)
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
